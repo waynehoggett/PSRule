@@ -1,2 +1,11 @@
+output:
+  culture:
+    - 'en-AU'
+
 configuration:
   AZURE_BICEP_FILE_EXPANSION: true
+
+input:
+  pathIgnore:
+    - modules/**/*.bicep
+    - '!modules/**/*.tests.bicep'

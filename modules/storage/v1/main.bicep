@@ -1,10 +1,18 @@
+param name string = deployment().name
+
 param location string = resourceGroup().location
 
+param sku string
+
 resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: 'sttest1101101'
+  name: name
   location: location
-  kind: 'StorageV2'
   sku: {
-    name: 'Standard_LRS'
+    name: sku
+  }
+  kind: 'StorageV2'
+  properties: {
+    minimumTlsVersion: 'TLS1_2'
+    supportsHttpsTrafficOnly: true
   }
 }
